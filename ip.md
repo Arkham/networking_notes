@@ -62,7 +62,6 @@
   * IPv6 does not fragmentate and does not checksum the header
 
 ### IPv4 frame
-
 * version
 * total length
 * flags (don't fragment, more fragments)
@@ -71,3 +70,18 @@
 * header checksum
 * source address
 * destination address
+
+## NAT, Network Address Translation
+
+* NAT is the process of modifying IP address information in IPv4 headers while in transit across a routing device
+* it is commonly used to hide a private IP network behind a single IP address
+  * in order to do so, it must maintain a transition table between ports and local network addresses
+  * generally it works that a host in the local network cannot be reached from outside
+    * although, it can be configured to do so by the network admin
+* mostly a tool used to alleviate IPv4 addresses exhaustion
+  * it breaks the end-to-end IP principle
+* there are many methods known as NAT traversal to establish a connection between two hosts behind NATs
+  * one of the most famous ones is TCP Hole punching
+    * two clients initiate a connection with a server
+    * as long as the connections are setup, the clients connect directly to each other through NAT prediction
+    * the server isn't used anymore and we have a classic client-server interaction
