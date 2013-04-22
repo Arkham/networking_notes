@@ -94,9 +94,15 @@
 * TCP employs several tecniques to achieve high performance and avoid congestions
 * main algorithms
   * slow-start
+    * sender-base congestion control, used by the sender to control transmission rate
   * congestion avoidance
+    * when doing slow start, the network may drop packets due to congestion
+    * this mechanism slows down the transmission rate
   * fast retransmit
+    * when three or more duplicate ACKs are reiceved, the sender does not wait for the re-trasmission timer to expire
+    * it starts re-transmitting the segment immediately
   * fast recovery
+    * instead of starting the window with size 1, it resumes the connection with a larger window
 
 ## Maximum segment size
 
